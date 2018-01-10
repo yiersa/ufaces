@@ -9,5 +9,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Ufaces",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "debug": true
 }
