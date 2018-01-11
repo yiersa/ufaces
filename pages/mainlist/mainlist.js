@@ -151,14 +151,14 @@ Page({
       query.equalTo('state','1');
       query.limit(10);// 最多返回 10 条结果
       query.skip(10 * page);// 跳过 20 条结果
-      query.find().then(function (results) {
-        if(results) {
-          let comments = JSON.parse(results[0].attributes.comments);
-          let title = results[0].attributes.title;
+      // query.find().then(function (results) {
+      //   if(results) {
+      //     let comments = JSON.parse(results[0].attributes.comments);
+      //     let title = results[0].attributes.title;
         
-        }
-      }, function (error) {
-      });
+      //   }
+      // }, function (error) {
+      // });
 
     }
 })
