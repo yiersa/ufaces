@@ -143,14 +143,14 @@ Page({
       
       
     },
-    queryArr : function() {
-      var startDateQuery = new AV.Query('document');
-      startDateQuery.greaterThanOrEqualTo('createdAt', new Date('2018-01-09 00:00:00'));
-
-      var endDateQuery = new AV.Query('document');
-      endDateQuery.lessThan('createdAt', new Date('2018-01-10 00:00:00'));
-
-      var query = AV.Query.and(startDateQuery, endDateQuery);
+    queryArr : function(page) {
+      if (page < 0) {
+        page = 0;
+      }
+      var query = new AV.Query('document');
+      query.equalTo('state',1);
+      query.limit(10);// 最多返回 10 条结果
+      query.skip(10 * page);// 跳过 20 条结果
       query.find().then(function (results) {
         if(results) {
           let comments = JSON.parse(results[0].attributes.comments);
