@@ -1,5 +1,6 @@
 // pages/mainlist/mainlist.js
 const AV = require('../../av-weapp-min.js');
+const util = require('../../utils/util.js')
 // 获得当前登录用户
 const user = AV.User.current();
 Page({
@@ -16,7 +17,7 @@ Page({
      */
     onLoad: function (options) {
       if (user && user.id) {
-        this.queryArr();
+        this.init();
       }
       
     },
@@ -77,9 +78,14 @@ Page({
       // document.set('content', '明天我要八点起');
       // document.set('userId', user.id);
       // document.set('nickName', '桃小东');
-      // document.set('origin', 'https://www.baidu.com/');
+      
       // document.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
 
+      // let origin = {
+      //   'website': '百度',
+      //   'url': 'https://www.baidu.com/'
+      // }
+      // document.set('origin', origin);
       // let actual = {
       //   'content': '早上11点才起',
       //   'time': new Date()
@@ -157,7 +163,7 @@ Page({
               'content': results[i].attributes.content,
               'nickName': results[i].attributes.nickName,
               'origin': results[i].attributes.origin,
-              'time': results[i].createdAt,
+              'time': util.formatTimeNoHour(results[i].createdAt),
               'id': results[i].id,
             }
             datas.push(item);
