@@ -7,14 +7,16 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+  data: {
+    dataList : []
+  },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
       if (user && user.id) {
-        this.init();
+        this.queryArr();
       }
       
     },
@@ -135,6 +137,7 @@ Page({
       
     },
     queryArr : function(page) {
+      var that = this;
       if (page < 0) {
         page = 0;
       }
@@ -142,14 +145,33 @@ Page({
       query.equalTo('state','1');
       query.limit(10);// 最多返回 10 条结果
       query.skip(10 * page);// 跳过 20 条结果
-      // query.find().then(function (results) {
-      //   if(results) {
-      //     let comments = JSON.parse(results[0].attributes.comments);
-      //     let title = results[0].attributes.title;
-        
-      //   }
-      // }, function (error) {
-      // });
+      query.select(['title', 'content', 'createdAt', 'origin', 'nickName']);
+      query.find().then(function (results) {
+        if (results && results.length > 0) {
+          // let comments = JSON.parse(results[0].attributes.comments);
+          // let title = results[0].attributes.title;
+          let datas = [];
+          for (let i = 0; i < results.length; i++) {
+            let item = {
+              'title': results[i].attributes.title,
+              'content': results[i].attributes.content,
+              'nickName': results[i].attributes.nickName,
+              'origin': results[i].attributes.origin,
+              'time': results[i].createdAt,
+              'id': results[i].id,
+            }
+            datas.push(item);
+          }
+          // that.data.dataList = datas //赋值不起效
+          that.setData({
+            dataList: datas
+          }) ;
+          // if (that.data.dataList) {
+          //   that.data.dataList.length;
+          // }
+        }
+      }, function (error) {
+      });
 
     }
 })
