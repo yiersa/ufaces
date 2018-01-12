@@ -1,6 +1,6 @@
 // pages/mainlist/mainlist.js
 const AV = require('../../av-weapp-min.js');
-const util = require('../../utils/util.js')
+const util = require('../../utils/util.js');
 // 获得当前登录用户
 const user = AV.User.current();
 Page({
@@ -17,7 +17,7 @@ Page({
      */
     onLoad: function (options) {
       if (user && user.id) {
-        this.init();
+        this.queryArr();
       }
       
     },
@@ -148,7 +148,6 @@ Page({
         page = 0;
       }
       var query = new AV.Query('document');
-      query.equalTo('state','1');
       query.limit(10);// 最多返回 10 条结果
       query.skip(10 * page);// 跳过 20 条结果
       query.select(['title', 'content', 'createdAt', 'origin', 'nickName']);
@@ -158,11 +157,14 @@ Page({
           // let title = results[0].attributes.title;
           let datas = [];
           for (let i = 0; i < results.length; i++) {
+            let website = results[i].attributes.origin.website;
+            let url = results[i].attributes.origin.url;
             let item = {
               'title': results[i].attributes.title,
               'content': results[i].attributes.content,
               'nickName': results[i].attributes.nickName,
-              'origin': results[i].attributes.origin,
+              'website': website,
+              'url': url,
               'time': util.formatTimeNoHour(results[i].createdAt),
               'id': results[i].id,
             }
@@ -179,5 +181,13 @@ Page({
       }, function (error) {
       });
 
-    }
+    },
+    openDetail: function (event) {
+      if (event) {
+        let id = event.currentTarget.dataset.itemId;
+        wx.navigateTo({
+          url: '../detail/detail?id=' + id 
+        })
+      }
+    },
 })
