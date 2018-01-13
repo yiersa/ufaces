@@ -11,5 +11,17 @@
     "navigationBarTitleText": "Ufaces",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/mainlist/mainlist",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      }
+    ]
+  },
   "debug": true
 }

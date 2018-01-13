@@ -11,9 +11,12 @@ Page({
   },
   //事件处理函数
   bindViewTap: function () {
-    wx.navigateTo({
-      url: '../mainlist/mainlist'
-    })
+    // wx.navigateTo({
+    //   url: '../mainlist/mainlist'
+    // })
+    wx.switchTab({ 
+      url: '../mainlist/mainlist'}
+    )
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
