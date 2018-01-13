@@ -12,6 +12,11 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "borderStyle": "black",
+    "selectedColor": "#09BB07",
+    "color": "#999999",
+    "position": "top",
+    "backgroundColor": "#F7F7FA",
     "list": [
       {
         "pagePath": "pages/mainlist/mainlist",
