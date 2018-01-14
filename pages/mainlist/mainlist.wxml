@@ -4,7 +4,7 @@
  <view class="head-container">
     <image bindtap="openMinePage" class="head-avatar" 
   src="{{userInfo.avatarUrl}}" mode='aspectFill'></image> 
-   <text class="head-text">添加</text>  
+   <text class="head-text" bindtap="openAddPage">添加</text>  
 </view> 
 
 
@@ -13,16 +13,18 @@
     <view class="weui-panel">
 
       <view class="weui-panel__bd">
-
-        <view class="weui-media-box weui-media-box_text" wx:for="{{dataList}}" wx:key="{{id}}">
-          <view data-item-id="{{item.id}}" bindtap="openDetail" class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
-          <view data-item-id="{{item.id}}" bindtap="openDetail" class="weui-media-box__desc">{{item.content}}</view>
-          <view data-item-utl="{{item.id}}" bindtap="openDialog" class="weui-media-box__info">
+        <view wx:for="{{dataList}}" wx:key="{{id}}">
+<view class="weui-media-box weui-media-box_text" bindtap="openDetail" >
+          <view data-item-id="{{item.id}}" class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+          <view data-item-id="{{item.id}}" class="weui-media-box__desc">{{item.content}}</view>
+          <view data-item-utl="{{item.id}}" class="weui-media-box__info">
             <view class="weui-media-box__info__meta">来源-{{item.website}}</view>
             <view class="weui-media-box__info__meta">{{item.time}}</view>
             <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.nickName}}</view>
           </view>
         </view>
+        </view>
+        
 
 
         <!-- <view class="weui-media-box weui-media-box_text">

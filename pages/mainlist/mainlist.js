@@ -194,10 +194,14 @@ Page({
         })
       }
     },
-    openDialog: function (event) {
-      let url = event.currentTarget.dataset.itemUrl;
-      //diaog中放一段可以复制的文本
-
-      
+    openMinePage:function() {
+      wx.navigateTo({
+        url: '../mine/mine',
+      })
+    },
+    openAddPage:function() {
+      wx.navigateTo({
+        url: '../mine/mine',
+      })
     }
 })
