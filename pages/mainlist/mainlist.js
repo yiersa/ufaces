@@ -1,23 +1,27 @@
 // pages/mainlist/mainlist.js
 const AV = require('../../av-weapp-min.js');
+const app = getApp()
 const util = require('../../utils/util.js');
-// 获得当前登录用户
-const user = AV.User.current();
+
 Page({
 
     /**
      * 页面的初始数据
      */
   data: {
-    dataList : []
+    dataList : [],
+    userInfo: {},
   },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      if (user && user.id) {
-        this.queryArr();
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
+      if (this.data.userInfo && this.data.userInfo.id) {
+        this.queryArr(0);
       }
       
     },
@@ -76,7 +80,7 @@ Page({
       // let document = new Document();
       // document.set('title', '我要8点起');
       // document.set('content', '明天我要八点起');
-      // document.set('userId', user.id);
+      // document.set('userId', this.data.userInfo.id);
       // document.set('nickName', '桃小东');
       
       // document.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
@@ -105,7 +109,7 @@ Page({
       // let comment1 = new Commect();
       // comment1.set('content', '哈哈哈哈哈哈笑死我了');
       // comment1.set('time', new Date());
-      // comment1.set('userId', user.id);
+      // comment1.set('userId', this.data.userInfo.id);
       // comment1.set('nickName', '桃小东');
       // comment1.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
       // comment1.set('documentId', '5a57fd0f9f545400568f8d86');
@@ -117,7 +121,7 @@ Page({
       // let comment2 = new Commect();
       // comment2.set('content', 'heheh');
       // comment2.set('time', new Date());
-      // comment2.set('userId', user.id);
+      // comment2.set('userId', this.data.userInfo.id);
       // comment2.set('nickName', '桃小东');
       // comment2.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
       // comment2.set('documentId', '5a57fd0f9f545400568f8d86');
@@ -129,7 +133,7 @@ Page({
       // let comment3 = new Commect();
       // comment3.set('content', '哦哦哦哦');
       // comment3.set('time', new Date());
-      // comment3.set('userId', user.id);
+      // comment3.set('userId', this.data.userInfo.id);
       // comment3.set('nickName', '桃小东');
       // comment3.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
       // comment3.set('documentId', '5a57fd0f9f545400568f8d86');

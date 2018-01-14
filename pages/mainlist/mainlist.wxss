@@ -1,1 +1,20 @@
 /* pages/mainlist/mainlist.wxss */
+.head-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+}
+.head-avatar{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-left: 25rpx;
+}
+.head-text{
+  color: #333333;
+  font-size: 40rpx;
+  text-align: center;
+  margin-right: 20px;
+}

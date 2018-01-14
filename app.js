@@ -15,7 +15,7 @@ App({
       appKey: appKey,
     });
     AV.User.loginWithWeapp().then(user => {
-      this.globalData.userInfo = user.attributes;
+      this.globalData.userInfo.id = user.id;
     }).catch(console.error);
 
     // // 登录
