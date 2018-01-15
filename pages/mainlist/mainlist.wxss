@@ -14,7 +14,10 @@
 }
 .head-text{
   color: #333333;
-  font-size: 40rpx;
+  font-size: 35rpx;
   text-align: center;
   margin-right: 20px;
+}
+.head-text:active{
+  color: #999999;
 }
