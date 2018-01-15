@@ -6,6 +6,15 @@
   align-items: center;
   height: 100rpx;
 }
+#head-dot{
+  position: absolute;
+  left: 90rpx;
+  top: 0;
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #e64340;
+  border-radius: 50%;
+}
 .head-avatar{
   width: 80rpx;
   height: 80rpx;
