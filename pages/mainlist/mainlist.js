@@ -21,7 +21,8 @@ Page({
         userInfo: app.globalData.userInfo
       })
       if (this.data.userInfo && this.data.userInfo.id) {
-        this.queryArr(0);
+        // this.queryArr(0);
+        this.init();
       }
       
     },
@@ -76,22 +77,19 @@ Page({
     },
     init : function() {
       // // 立的flag
-      // let Document = AV.Object.extend('document');
+      // let Document = AV.Object.extend('ArticleList');
       // let document = new Document();
       // document.set('title', '我要8点起');
       // document.set('content', '明天我要八点起');
       // document.set('userId', this.data.userInfo.id);
       // document.set('nickName', '桃小东');
-      
       // document.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-
-      // let origin = {
-      //   'website': '百度',
-      //   'url': 'https://www.baidu.com/'
-      // }
-      // document.set('origin', origin);
+      // document.set('label', '百度');
+      
+      // document.set('origin', 'https://www.baidu.com/');
       // let actual = {
       //   'content': '早上11点才起',
+      //   'url':'https://www.baidu.com/',
       //   'time': new Date()
       // };
       // document.set('actual', actual);
@@ -112,7 +110,7 @@ Page({
       // comment1.set('userId', this.data.userInfo.id);
       // comment1.set('nickName', '桃小东');
       // comment1.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      // comment1.set('documentId', '5a57fd0f9f545400568f8d86');
+      // comment1.set('articleId', '5a5f5aa20b61600044a78fc8');
       // comment1.save().then(function (item) {
       //   console.log('New object created with objectId: ' + item.id);
       // }, function (error) {
@@ -124,7 +122,7 @@ Page({
       // comment2.set('userId', this.data.userInfo.id);
       // comment2.set('nickName', '桃小东');
       // comment2.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      // comment2.set('documentId', '5a57fd0f9f545400568f8d86');
+      // comment2.set('articleId', '5a5f5aa20b61600044a78fc8');
       // comment2.save().then(function (item) {
       //   console.log('New object created with objectId: ' + item.id);
       // }, function (error) {
@@ -136,7 +134,7 @@ Page({
       // comment3.set('userId', this.data.userInfo.id);
       // comment3.set('nickName', '桃小东');
       // comment3.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      // comment3.set('documentId', '5a57fd0f9f545400568f8d86');
+      // comment3.set('articleId', '5a5f5aa20b61600044a78fc8');
       // comment3.save().then(function (item) {
       //   console.log('New object created with objectId: ' + item.id);
       // }, function (error) {
