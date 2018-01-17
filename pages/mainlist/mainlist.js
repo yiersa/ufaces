@@ -76,30 +76,32 @@ Page({
 
     },
     init : function() {
-      // // 立的flag
-      // let Document = AV.Object.extend('ArticleList');
-      // let document = new Document();
-      // document.set('title', '我要8点起');
-      // document.set('content', '明天我要八点起');
-      // document.set('userId', this.data.userInfo.id);
-      // document.set('nickName', '桃小东');
-      // document.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      // document.set('label', '百度');
+      // 立的flag
+      let Document = AV.Object.extend('ArticleList');
+      let document = new Document();
+      document.set('title', '我要8点起');
+      document.set('content', '明天我要八点起');
+      document.set('userId', this.data.userInfo.id);
+      document.set('nickName', '桃小东');
+      document.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
+      document.set('label', '百度');
       
-      // document.set('origin', 'https://www.baidu.com/');
-      // let actual = {
-      //   'content': '早上11点才起',
-      //   'url':'https://www.baidu.com/',
-      //   'time': new Date()
-      // };
-      // document.set('actual', actual);
-      // document.save().then(function (item) {
-      //   // 成功保存之后，执行其他逻辑.
-      //   console.log('New object created with objectId: ' + item.id);
-      // }, function (error) {
-      //   // 异常处理
-      //   console.error('Failed to create new object, with error message: ' + error.message);
-      // });
+      document.set('origin', 'https://www.baidu.com/');
+      let actual = {
+        'content': '早上11点才起',
+        'url':'https://www.baidu.com/',
+        'time': new Date()
+      };
+      document.set('actual', actual);
+      document.set('state', '1');
+      document.set('commentCount', 3);
+      document.save().then(function (item) {
+        // 成功保存之后，执行其他逻辑.
+        console.log('New object created with objectId: ' + item.id);
+      }, function (error) {
+        // 异常处理
+        console.error('Failed to create new object, with error message: ' + error.message);
+      });
       
 
       // //评论
