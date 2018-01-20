@@ -22,7 +22,6 @@ Page({
       })
       if (this.data.userInfo && this.data.userInfo.id) {
         this.queryArr(0);
-        // this.init();
       }
       
     },
@@ -74,77 +73,6 @@ Page({
      */
     onShareAppMessage: function () {
 
-    },
-    init : function() {
-      // // 立的flag
-      // let Document = AV.Object.extend('ArticleList');
-      // let document = new Document();
-      // document.set('title', '我要8点起');
-      // document.set('content', '明天我要八点起');
-      // document.set('userId', this.data.userInfo.id);
-      // document.set('nickName', '桃小东');
-      // document.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      // document.set('label', '百度');
-      
-      // document.set('origin', 'https://www.baidu.com/');
-      // let actual = {
-      //   'content': '早上11点才起',
-      //   'url':'https://www.baidu.com/',
-      //   'time': new Date()
-      // };
-      // document.set('actual', actual);
-      // document.set('state', '1');
-      // document.set('commentCount', 3);
-      // document.save().then(function (item) {
-      //   // 成功保存之后，执行其他逻辑.
-      //   console.log('New object created with objectId: ' + item.id);
-      // }, function (error) {
-      //   // 异常处理
-      //   console.error('Failed to create new object, with error message: ' + error.message);
-      // });
-      
-
-      // //评论
-      // let Commect = AV.Object.extend('comment');
-      // let comment1 = new Commect();
-      // comment1.set('content', '哈哈哈哈哈哈笑死我了');
-      // comment1.set('time', new Date());
-      // comment1.set('userId', this.data.userInfo.id);
-      // comment1.set('nickName', '桃小东');
-      // comment1.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      // comment1.set('articleId', '5a5f5aa20b61600044a78fc8');
-      // comment1.save().then(function (item) {
-      //   console.log('New object created with objectId: ' + item.id);
-      // }, function (error) {
-      //   console.error('Failed to create new object, with error message: ' + error.message);
-      // });
-      // let comment2 = new Commect();
-      // comment2.set('content', 'heheh');
-      // comment2.set('time', new Date());
-      // comment2.set('userId', this.data.userInfo.id);
-      // comment2.set('nickName', '桃小东');
-      // comment2.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      // comment2.set('articleId', '5a5f5aa20b61600044a78fc8');
-      // comment2.save().then(function (item) {
-      //   console.log('New object created with objectId: ' + item.id);
-      // }, function (error) {
-      //   console.error('Failed to create new object, with error message: ' + error.message);
-      // });
-      // let comment3 = new Commect();
-      // comment3.set('content', '哦哦哦哦');
-      // comment3.set('time', new Date());
-      // comment3.set('userId', this.data.userInfo.id);
-      // comment3.set('nickName', '桃小东');
-      // comment3.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      // comment3.set('articleId', '5a5f5aa20b61600044a78fc8');
-      // comment3.save().then(function (item) {
-      //   console.log('New object created with objectId: ' + item.id);
-      // }, function (error) {
-      //   console.error('Failed to create new object, with error message: ' + error.message);
-      // });
-      
-      
-      
     },
     queryArr : function(page) {
       var that = this;
