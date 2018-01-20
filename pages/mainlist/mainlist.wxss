@@ -31,5 +31,5 @@
   color: #999999;
 }
 .bottom_dorder{
-  
+  border-bottom:1rpx solid #e5e5e5;
 }
