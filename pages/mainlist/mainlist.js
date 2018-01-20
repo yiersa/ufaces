@@ -21,8 +21,8 @@ Page({
         userInfo: app.globalData.userInfo
       })
       if (this.data.userInfo && this.data.userInfo.id) {
-        // this.queryArr(0);
-        this.init();
+        this.queryArr(0);
+        // this.init();
       }
       
     },
@@ -76,32 +76,32 @@ Page({
 
     },
     init : function() {
-      // 立的flag
-      let Document = AV.Object.extend('ArticleList');
-      let document = new Document();
-      document.set('title', '我要8点起');
-      document.set('content', '明天我要八点起');
-      document.set('userId', this.data.userInfo.id);
-      document.set('nickName', '桃小东');
-      document.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
-      document.set('label', '百度');
+      // // 立的flag
+      // let Document = AV.Object.extend('ArticleList');
+      // let document = new Document();
+      // document.set('title', '我要8点起');
+      // document.set('content', '明天我要八点起');
+      // document.set('userId', this.data.userInfo.id);
+      // document.set('nickName', '桃小东');
+      // document.set('avatarUrl', 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKic4Sia2vW3FdMJH947Q9Ik8g5TaibQxbgtubP9SwssgibLewftpM2M5sDEz91kCswtgCwP9fGyqCCQQ/0');
+      // document.set('label', '百度');
       
-      document.set('origin', 'https://www.baidu.com/');
-      let actual = {
-        'content': '早上11点才起',
-        'url':'https://www.baidu.com/',
-        'time': new Date()
-      };
-      document.set('actual', actual);
-      document.set('state', '1');
-      document.set('commentCount', 3);
-      document.save().then(function (item) {
-        // 成功保存之后，执行其他逻辑.
-        console.log('New object created with objectId: ' + item.id);
-      }, function (error) {
-        // 异常处理
-        console.error('Failed to create new object, with error message: ' + error.message);
-      });
+      // document.set('origin', 'https://www.baidu.com/');
+      // let actual = {
+      //   'content': '早上11点才起',
+      //   'url':'https://www.baidu.com/',
+      //   'time': new Date()
+      // };
+      // document.set('actual', actual);
+      // document.set('state', '1');
+      // document.set('commentCount', 3);
+      // document.save().then(function (item) {
+      //   // 成功保存之后，执行其他逻辑.
+      //   console.log('New object created with objectId: ' + item.id);
+      // }, function (error) {
+      //   // 异常处理
+      //   console.error('Failed to create new object, with error message: ' + error.message);
+      // });
       
 
       // //评论
@@ -151,40 +151,42 @@ Page({
       if (page < 0) {
         page = 0;
       }
-      var query = new AV.Query('document');
-      query.limit(10);// 最多返回 10 条结果
-      query.skip(10 * page);// 跳过 20 条结果
-      query.select(['title', 'content', 'createdAt', 'origin', 'nickName']);
-      query.find().then(function (results) {
-        if (results && results.length > 0) {
-          // let comments = JSON.parse(results[0].attributes.comments);
-          // let title = results[0].attributes.title;
+      var paramsJson = {
+        type: "list",
+        page: page
+      };
+      AV.Cloud.run('getArticleList', paramsJson).then(function (data) {
+        // 调用成功，得到成功的应答 data
+        if (data && data.errorCode == '0') {
           let datas = [];
-          for (let i = 0; i < results.length; i++) {
-            let website = results[i].attributes.origin.website;
-            let url = results[i].attributes.origin.url;
+          for (let i = 0; i < data.data.length; i++) {
             let item = {
-              'title': results[i].attributes.title,
-              'content': results[i].attributes.content,
-              'nickName': results[i].attributes.nickName,
-              'website': website,
-              'url': url,
-              'time': util.formatTimeNoHour(results[i].createdAt),
-              'id': results[i].id,
+              'title': data.data[i].title,
+              'content': data.data[i].content,
+              'nickName': data.data[i].nickName,
+              'label': data.data[i].label,
+              'time': data.data[i].createdAt,
+              'id': data.data[i].objectId,
+              'commentCount': data.data[i].commentCount
             }
+            //
             datas.push(item);
           }
           // that.data.dataList = datas //赋值不起效
           that.setData({
             dataList: datas
-          }) ;
-          // if (that.data.dataList) {
-          //   that.data.dataList.length;
-          // }
+          });
+        } else {
+          that.setData({
+            dataList: []
+          });
         }
-      }, function (error) {
+      }, function (err) {
+        // 处理调用失败
+        that.setData({
+          dataList: []
+        });
       });
-
     },
     openDetail: function (event) {
       if (event) {

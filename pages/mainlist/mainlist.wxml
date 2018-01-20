@@ -12,27 +12,38 @@
 </view> 
 
 
-<!--列表  -->
+ <!-- 列表   -->
   <view class="page__bd">
-    <view class="weui-panel">
+    <view class="weui-panel" >
 
-      <view class="weui-panel__bd">
-        <view wx:for="{{dataList}}" wx:key="{{id}}">
+       <view class="weui-panel__bd" >
+        <view class='bottom_dorder' wx:for="{{dataList}}" wx:key="{{id}}">
 <view class="weui-media-box weui-media-box_text" bindtap="openDetail" >
           <view data-item-id="{{item.id}}" class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
           <view data-item-id="{{item.id}}" class="weui-media-box__desc">{{item.content}}</view>
           <view data-item-utl="{{item.id}}" class="weui-media-box__info">
-            <view class="weui-media-box__info__meta">关于哪个大佬</view>
+            <view class="weui-media-box__info__meta">{{item.label}}</view>
             <view class="weui-media-box__info__meta">{{item.time}}</view>
-            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">评论数</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.commentCount}}</view>
           </view>
         </view>
         </view>
 
-
-
       </view>
     </view>
 
-  </view>
+  </view> 
+
+
+
+
+
+
+        
+
+
+
+
+
+
 </view>

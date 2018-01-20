@@ -30,3 +30,6 @@
 .head-text:active{
   color: #999999;
 }
+.bottom_dorder{
+  
+}
