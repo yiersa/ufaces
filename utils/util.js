@@ -9,9 +9,11 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 const formatTimeNoHour = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
+  let dateTemp = new Date(date);
+  console.log('dateTemp-----' + dateTemp)
+  const year = dateTemp.getFullYear()
+  const month = dateTemp.getMonth() + 1
+  const day = dateTemp.getDate()
   
 
   return [year, month, day].map(formatNumber).join('/');

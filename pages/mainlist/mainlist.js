@@ -92,10 +92,10 @@ Page({
               'title': data.data[i].title,
               'content': data.data[i].content,
               'nickName': data.data[i].nickName,
-              'label': data.data[i].label,
-              'time': data.data[i].createdAt,
+              'label': data.data[i].label, 
+              'time': util.formatTimeNoHour(data.data[i].createdAt),
               'id': data.data[i].objectId,
-              'commentCount': data.data[i].commentCount
+              'commentCount': data.data[i].commentCount < 99 ? data.data[i].commentCount : 99
             }
             //
             datas.push(item);
