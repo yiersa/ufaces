@@ -73,7 +73,8 @@ Page({
         page = 0;
       }
       var paramsJson = {
-        page: page
+        page: page,
+        limit:20
       };
       AV.Cloud.run('getArticleList', paramsJson).then(function (data) {
         // 调用成功，得到成功的应答 data

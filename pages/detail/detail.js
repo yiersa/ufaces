@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    itemData:{}
   },
 
   /**
@@ -70,30 +70,37 @@ Page({
   
   },
   queryDetail: function(id) {
-    var query = new AV.Query('document');
-    query.equalTo('objectId', id);
-    query.find().then(function (results) {
-      if (results && results.length > 0) {
-        // let comments = JSON.parse(results[0].attributes.comments);
-        // let title = results[0].attributes.title;
-        let datas = [];
-        for (let i = 0; i < results.length; i++) {
-          let website = results[i].attributes.origin.website;
-          let url = results[i].attributes.origin.url;
+    var paramsJson = {
+      id: id
+    };
+    AV.Cloud.run('getArticle', paramsJson).then(function (data) {
+      // 调用成功，得到成功的应答 data
+      if (data && data.errorCode == '0') {
           let item = {
-            'title': results[i].attributes.title,
-            'content': results[i].attributes.content,
-            'nickName': results[i].attributes.nickName,
-            'website': website,
-            'url': url,
-            'time': util.formatTimeNoHour(results[i].createdAt),
-            'id': results[i].id,
+            'title': data.title,
+            'content': data.content,
+            'nickName': data.nickName,
+            'label': data.label,
+            'time': util.formatTimeNoHour(data.data[i].createdAt),
+            'id': data.objectId,
+            'commentCount': data.commentCount < 99 ? data.commentCount : 99
           }
-          datas.push(item);
-        }
-
+        that.setData({
+          itemData: item
+        });
+      } else {
+        that.setData({
+          itemData: {}
+        });
       }
-    }, function (error) {
+    }, function (err) {
+      // 处理调用失败
+      that.setData({
+        itemData: {}
+      });
     });
+
+
+
   }
 })
