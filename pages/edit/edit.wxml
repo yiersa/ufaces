@@ -1,0 +1,63 @@
+<!--pages/edit/edit.wxml-->
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    
+    <view class="page__bd">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+
+        <view class="weui-cells__title">来源</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">标签</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" maxlength="20" value="{{label}}" placeholder="请输入标签"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">网址</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" maxlength="500" value="{{origin}}" placeholder="请输入网址"/>
+                </view>
+            </view> 
+        </view>
+        <view class="weui-cells__tips">标签表示文章内容关于哪位大佬的，网址表示文章来源</view>
+
+        <view class="weui-cells__title">标题</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" maxlength="50" value="{{title}}" placeholder="请输入标题" />
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">内容</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" maxlength="3000" value="{{content}}" placeholder="请输入内容" style="height: 3.3em" />
+              
+                </view>
+            </view>
+        </view>
+        
+        <checkbox-group bindchange="bindAgreeChange">
+            <label class="weui-agree" for="weuiAgree">
+                <view class="weui-agree__text">
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                    <view class="weui-agree__checkbox-icon">
+                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                    </view>
+                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                </view>
+            </label>
+        </checkbox-group>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="confirm">确定</button>
+        </view>
+    </view>
+</view>

@@ -9,20 +9,13 @@ Page({
      * 页面的初始数据
      */
   data: {
-    dataList : [],
-    userInfo: {},
+    dataList : []
   },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-      if (this.data.userInfo && this.data.userInfo.id) {
-        this.queryArr(0);
-      }
       
     },
 
@@ -30,7 +23,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+      this.queryArr(0);
     },
 
     /**
@@ -130,7 +123,7 @@ Page({
     },
     openAddPage:function() {
       wx.navigateTo({
-        url: '../mine/mine',
+        url: '../edit/edit',
       })
     }
 })
