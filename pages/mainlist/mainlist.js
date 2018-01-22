@@ -80,7 +80,6 @@ Page({
         page = 0;
       }
       var paramsJson = {
-        type: "list",
         page: page
       };
       AV.Cloud.run('getArticleList', paramsJson).then(function (data) {
