@@ -71,10 +71,6 @@ Page({
      */
     onReachBottom: function () {
       if (isHaveMore) {
-        wx.showLoading({
-          title: '加载中',
-          mask: true
-        })
         this.data.page++;
         this.queryArr(this.data.page);
       }
@@ -123,6 +119,7 @@ Page({
             dataList: datas
           });
         } else {
+
           that.setData({
             dataList: []
           });

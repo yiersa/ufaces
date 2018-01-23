@@ -2,7 +2,7 @@
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
     
     <view class="page__bd">
-        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{tips}}</view>
 
         <view class="weui-cells__title">来源</view>
         <view class="weui-cells weui-cells_after-title">
