@@ -9,21 +9,33 @@ Page({
      * 页面的初始数据
      */
   data: {
-    dataList : []
+    dataList : [],
+    userInfo:{},
+    page:0,
+    isHaveMore:false
   },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-      this.queryArr(0);
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+      this.setData({
+        page: 0
+      })
+      this.queryArr(this.data.page);
     },
 
     /**
@@ -51,14 +63,21 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+      
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+      if (isHaveMore) {
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })
+        this.data.page++;
+        this.queryArr(this.data.page);
+      }
     },
 
     /**
@@ -78,8 +97,14 @@ Page({
       };
       AV.Cloud.run('getArticleList', paramsJson).then(function (data) {
         // 调用成功，得到成功的应答 data
+        wx.hideLoading();
         if (data && data.errorCode == '0') {
           let datas = [];
+          if (data.data.length === 20) {
+            that.data.isHaveMore = true;
+          } else {
+            that.data.isHaveMore = false;
+          }
           for (let i = 0; i < data.data.length; i++) {
             let item = {
               'title': data.data[i].title,
@@ -93,7 +118,7 @@ Page({
             //
             datas.push(item);
           }
-          // that.data.dataList = datas //赋值不起效
+          
           that.setData({
             dataList: datas
           });
@@ -104,6 +129,7 @@ Page({
         }
       }, function (err) {
         // 处理调用失败
+        wx.hideLoading();
         that.setData({
           dataList: []
         });

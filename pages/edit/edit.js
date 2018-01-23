@@ -13,8 +13,7 @@ Page({
     label:'',
     origin:'',
     title:'',
-    content:'',
-    userInfo: {},
+    content:''
   },
 
   /**
@@ -93,5 +92,13 @@ Page({
   },
   confirm:function(e) {
 
+  },
+  checkInputValue:function() {
+    // label: '',
+    //   origin:'',
+    //     title:'',
+    //       content:'',
+    //         userInfo: { },
+          
   }
 })
