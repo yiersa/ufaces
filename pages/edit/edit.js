@@ -144,23 +144,26 @@ Page({
             paramsJson.type = '1';
         }
 
-        AV.Cloud.run('getArticle', paramsJson).then(function (data) {
+        AV.Cloud.run('addArticle', paramsJson).then(function (data) {
             // 调用成功，得到成功的应答 data
             wx.hideLoading();
             if (data && data.errorCode == '0') {
+                //跳转详情页面
+
 
             } else {
-
+                this.showTopTips('提交失败');
             }
         }, function (err) {
             // 处理调用失败
-
+            this.showTopTips('提交失败');
         });
     },
-    showTopTips: function () {
+    showTopTips: function (tips) {
         var that = this;
         this.setData({
-            showTopTips: true
+            showTopTips: true,
+            tips: tips
         });
         setTimeout(function () {
             that.setData({
@@ -180,66 +183,39 @@ Page({
     },
     checkInputValue: function () {
         if (!this.data.label) {
-            this.setData({
-                tips: '请输入标签'
-            });
-            this.showTopTips();
+            this.showTopTips('请输入标签');
             return false;
         }
         if (this.data.label.length > 20) {
-            this.setData({
-                tips: '标签过长'
-            });
-            this.showTopTips();
+            this.showTopTips('标签过长');
             return false;
         }
         if (!this.data.origin) {
-            this.setData({
-                tips: '请输入网址'
-            });
-            this.showTopTips();
+            this.showTopTips('请输入网址');
             return false;
         }
         if (this.data.origin.length > 500) {
-            this.setData({
-                tips: '网址过长'
-            });
-            this.showTopTips();
+            this.showTopTips('网址过长');
             return false;
         }
         if (!this.data.title) {
-            this.setData({
-                tips: '请输入标题'
-            });
-            this.showTopTips();
+            this.showTopTips('请输入标题');
             return false;
         }
         if (this.data.title.length > 50) {
-            this.setData({
-                tips: '标题过长'
-            });
-            this.showTopTips();
+            this.showTopTips('标题过长');
             return false;
         }
         if (!this.data.content) {
-            this.setData({
-                tips: '请输入内容'
-            });
-            this.showTopTips();
+            this.showTopTips('请输入内容');
             return false;
         }
         if (this.data.content.length > 3000) {
-            this.setData({
-                tips: '内容过长'
-            });
-            this.showTopTips();
+            this.showTopTips('内容过长');
             return false;
         }
         if (!this.data.isAgree) {
-            this.setData({
-                tips: '未同意使用条款'
-            });
-            this.showTopTips();
+            this.showTopTips('未同意使用条款');
             return false;
         }
         return true;
