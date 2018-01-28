@@ -1,20 +1,15 @@
 <!--pages/detail/detail.wxml-->
 <view class="page__bd">
-    <view class="title">
+    <view class="weui-article">
         <view class="weui-article__h1">{{itemData.title}}</view>
         <view class="weui-article__section">
-
-            <view class="weui-footer">
-                <view class="weui-footer__links">
-                    <navigator url="" class="weui-footer__link">来源-{{itemData.origin}}</navigator>
+            <view class="weui-article__title title">来源:{{itemData.origin}}</view>
+            <view class="weui-article__section">
+                <view class="weui-article__h3">标签:{{itemData.label}} {{itemData.time}}</view>
+                <view class="weui-article__p">
+                    {{itemData.content}}
                 </view>
-                <view class="weui-footer__text">标签-{{itemData.label}} {{itemData.time}}</view>
             </view>
-            <view class="weui-article__p">
-                {{itemData.content}}
-            </view>
-
-
         </view>
     </view>
 

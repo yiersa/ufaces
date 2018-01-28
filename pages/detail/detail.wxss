@@ -1,9 +1,9 @@
 /* pages/detail/detail.wxss */
 .comment{
   border-top:1rpx solid #e5e5e5;
-  height: 80rpx;
-  line-height: 80rpx;
-  color:#999;
+  height: 90rpx;
+  line-height: 90rpx;
+  color:#666;
   font-size:14px;
   text-align:center;
   position:fixed;
@@ -11,9 +11,12 @@
   left:0;
   right:0;
 }
+.comment:active{
+  background-color: #e5e5e5;
+}
 .title{
-  font-size:18px;
-  font-weight:400;
-  margin-bottom:.9em;
-  text-align: center;
+  color: #586c94;
+}
+.title:active{
+  color: #999;
 }
