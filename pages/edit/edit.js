@@ -7,7 +7,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-        id: '',
         showTopTips: false,
         isAgree: false,
         label: '',
@@ -22,13 +21,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      if (app.globalData.userInfo) {
         this.setData({
-            userInfo: app.globalData.userInfo
+          userInfo: app.globalData.userInfo
+          
         })
-        let id = options.id;
-        if (id) {
-            this.queryDetail(id);
-        }
+      } 
     },
 
     /**
@@ -79,48 +77,6 @@ Page({
     onShareAppMessage: function () {
 
     },
-    queryDetail: function(id) {
-        var paramsJson = {
-            id: id
-        };
-        AV.Cloud.run('getArticle', paramsJson).then(function (data) {
-            // 调用成功，得到成功的应答 data
-            if (data && data.errorCode == '0') {
-                that.setData({
-                    id: data.objectId,
-                    showTopTips: false,
-                    isAgree: false,
-                    label: data.label,
-                    origin: data.origin,
-                    title: data.title,
-                    content: data.content,
-                });
-            } else {
-                that.setData({
-                    id: '',
-                    showTopTips: false,
-                    isAgree: false,
-                    label: '',
-                    origin: '',
-                    title: '',
-                    content: '',
-                    tips: ''
-                });
-            }
-        }, function (err) {
-            // 处理调用失败
-            that.setData({
-                id: '',
-                showTopTips: false,
-                isAgree: false,
-                label: '',
-                origin: '',
-                title: '',
-                content: '',
-                tips: ''
-            });
-        });
-    },
     submitInfo:function () {
         wx.showLoading({
             title: '提交中',
@@ -130,26 +86,23 @@ Page({
             'article':{
                 'title': this.data.title,
                 'content': this.data.content,
-                'userId': this.userInfo.id,
-                'nickName': this.userInfo.nickName,
-                'avatarUrl': this.userInfo.avatarUrl,
+                'userId': this.data.userInfo.id,
+                'nickName': this.data.userInfo.nickName,
+                'avatarUrl': this.data.userInfo.avatarUrl,
                 'label': this.data.label,
                 'origin':this.data.origin,
-            }
+            },
+            'actionType':'1'
         };
-        if (this.data.id) {
-            paramsJson.type = '2';
-            paramsJson.objectId = this.data.id;
-        } else {
-            paramsJson.type = '1';
-        }
-
         AV.Cloud.run('addArticle', paramsJson).then(function (data) {
             // 调用成功，得到成功的应答 data
             wx.hideLoading();
             if (data && data.errorCode == '0') {
                 //跳转详情页面
-
+              let id = data.data.id;
+              wx.navigateTo({
+                url: '../detail/detail?id=' + id
+              })
 
             } else {
                 this.showTopTips('提交失败');
@@ -215,9 +168,29 @@ Page({
             return false;
         }
         if (!this.data.isAgree) {
-            this.showTopTips('未同意使用条款');
+            this.showTopTips('须同意使用条款才能使用本功能');
             return false;
         }
         return true;
-    }
+    },
+    bindLabelInput:function(e) {
+      this.setData({
+        label: e.detail.value
+      });
+    },
+    bindOriginInput: function (e) {
+      this.setData({
+        origin: e.detail.value
+      });
+    },
+    bindTitleInput: function (e) {
+      this.setData({
+        title: e.detail.value
+      });
+    },
+    bindContentInput: function (e) {
+      this.setData({
+        content: e.detail.value
+      });
+    },
 })

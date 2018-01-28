@@ -70,7 +70,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-      if (isHaveMore) {
+      if (this.data.isHaveMore) {
         this.data.page++;
         this.queryArr(this.data.page);
       }

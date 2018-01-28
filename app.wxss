@@ -9,10 +9,9 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-.bottom_dorder{
+.bottom_border{
   border-bottom:1rpx solid #e5e5e5;
 }
-
 .page__hd {
     padding: 40px;
 }
@@ -40,4 +39,7 @@
     color: #888888;
     text-align: left;
     font-size: 14px;
+}
+.text-color-gray{
+  color: #999999
 }

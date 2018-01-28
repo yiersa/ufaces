@@ -11,7 +11,7 @@
                     <view class="weui-label">标签</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" maxlength="20" value="{{label}}" placeholder="请输入标签"/>
+                    <input class="weui-input" maxlength="20" placeholder="请输入标签" bindinput="bindLabelInput"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
@@ -19,7 +19,7 @@
                     <view class="weui-label">网址</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" maxlength="500" value="{{origin}}" placeholder="请输入网址"/>
+                    <input class="weui-input" maxlength="500" placeholder="请输入网址" bindinput="bindOriginInput"/>
                 </view>
             </view> 
         </view>
@@ -29,7 +29,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__bd">
-                    <input class="weui-input" maxlength="50" value="{{title}}" placeholder="请输入标题" />
+                    <input class="weui-input" maxlength="50" placeholder="请输入标题" bindinput="bindTitleInput"/>
                 </view>
             </view>
         </view>
@@ -38,7 +38,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" maxlength="3000" value="{{content}}" placeholder="请输入内容" style="height: 3.3em" />
+                    <textarea class="weui-textarea" maxlength="3000" placeholder="请输入内容" style="height: 3.3em" bindinput="bindContentInput"/>
               
                 </view>
             </view>

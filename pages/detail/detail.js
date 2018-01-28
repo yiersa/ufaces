@@ -1,6 +1,7 @@
 // pages/detail/detail.js
 const AV = require('../../av-weapp-min.js');
 const util = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
@@ -14,9 +15,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (app.globalData.userInfo) {
       this.setData({
-          userInfo: app.globalData.userInfo
+        userInfo: app.globalData.userInfo
+
       })
+    } 
     let id = options.id;
     if(id) {
       this.queryDetail(id);
@@ -73,6 +77,7 @@ Page({
   
   },
   queryDetail: function(id) {
+    let that = this;
     var paramsJson = {
       id: id
     };
@@ -80,13 +85,14 @@ Page({
       // 调用成功，得到成功的应答 data
       if (data && data.errorCode == '0') {
           let item = {
-            'title': data.title,
-            'content': data.content,
-            'nickName': data.nickName,
-            'label': data.label,
-            'time': util.formatTimeNoHour(data.data[i].createdAt),
-            'id': data.objectId,
-            'commentCount': data.commentCount < 99 ? data.commentCount : 99
+            'title': data.data.title,
+            'content': data.data.content,
+            'nickName': data.data.nickName,
+            'label': data.data.label,
+            'time': util.formatTime(data.data.createdAt),
+            'id': data.data.objectId,
+            'origin': data.data.origin,
+            'commentCount': data.data.commentCount < 99 ? data.data.commentCount : 99
           }
         that.setData({
           itemData: item

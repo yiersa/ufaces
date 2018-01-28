@@ -1,12 +1,13 @@
 const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
+  let dateTemp = new Date(date);
+  const year = dateTemp.getFullYear()
+  const month = dateTemp.getMonth() + 1
+  const day = dateTemp.getDate()
+  const hour = dateTemp.getHours()
+  const minute = dateTemp.getMinutes()
+  const second = dateTemp.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 const formatTimeNoHour = date => {
   let dateTemp = new Date(date);
@@ -14,9 +15,7 @@ const formatTimeNoHour = date => {
   const year = dateTemp.getFullYear()
   const month = dateTemp.getMonth() + 1
   const day = dateTemp.getDate()
-  
-
-  return [year, month, day].map(formatNumber).join('/');
+  return [year, month, day].map(formatNumber).join('-');
 }
 
 const formatNumber = n => {

@@ -1,2 +1,26 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class="page__bd">
+    <view class="title">
+        <view class="weui-article__h1">{{itemData.title}}</view>
+        <view class="weui-article__section">
+
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="" class="weui-footer__link">来源-{{itemData.origin}}</navigator>
+                </view>
+                <view class="weui-footer__text">标签-{{itemData.label}} {{itemData.time}}</view>
+            </view>
+            <view class="weui-article__p">
+                {{itemData.content}}
+            </view>
+
+
+        </view>
+    </view>
+
+
+    <view class="weui-footer weui-footer_fixed-bottom comment">
+        评论({{itemData.commentCount}})
+    </view>
+
+</view>
