@@ -3,7 +3,7 @@
     <view class="weui-article">
         <view class="weui-article__h1">{{itemData.title}}</view>
         <view class="weui-article__section">
-            <view class="weui-article__title title">来源:{{itemData.origin}}</view>
+            <view class="weui-article__title title" bindtap="setClipboard">来源:{{itemData.origin}}</view>
             <view class="weui-article__section">
                 <view class="weui-article__h3">标签:{{itemData.label}} {{itemData.time}}</view>
                 <view class="weui-article__p">
