@@ -99,7 +99,7 @@ Page({
             wx.hideLoading();
             if (data && data.errorCode == '0') {
                 //跳转详情页面
-              let id = data.data.id;
+              let id = data.data.objectId;
               wx.navigateTo({
                 url: '../detail/detail?id=' + id
               })
