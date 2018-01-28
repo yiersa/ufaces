@@ -14,7 +14,7 @@
     </view>
 
 
-    <view class="weui-footer weui-footer_fixed-bottom comment">
+    <view class="weui-footer weui-footer_fixed-bottom comment" bindtap="openComment">
         评论({{itemData.commentCount}})
     </view>
 

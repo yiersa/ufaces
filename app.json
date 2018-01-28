@@ -4,7 +4,8 @@
     "pages/mainlist/mainlist",
     "pages/detail/detail",
     "pages/mine/mine",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundTextStyle": "light",

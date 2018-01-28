@@ -132,5 +132,11 @@ Page({
                 })
             }
         })
+    },
+    openComment:function () {
+        let id = this.data.itemData.id;
+        wx.navigateTo({
+            url: '../comment/comment?id=' + id
+        })
     }
 })
