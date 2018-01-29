@@ -38,7 +38,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" maxlength="3000" placeholder="请输入内容" style="height: 3.3em" bindinput="bindContentInput"/>
+                    <textarea class="weui-textarea textarea-height" maxlength="3000" placeholder="请输入内容" bindinput="bindContentInput"/>
               
                 </view>
             </view>

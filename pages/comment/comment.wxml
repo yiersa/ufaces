@@ -1,2 +1,43 @@
 <!--pages/comment/comment.wxml-->
-<text>pages/comment/comment.wxml</text>
+<view>
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{tips}}</view>
+    <view class="page__bd comment-list">
+
+        <view >标签</view>
+        <view >标签</view>
+        <view >标签</view>
+        <view >标签</view>
+        <view >标签</view>
+        <view >标签</view>
+
+        <view class="weui-footer weui-footer_fixed-bottom comment" bindtap="openComment">
+            评论
+        </view>
+
+
+
+
+    </view>
+    <view class="comment-parent">
+
+        <!--<view class="weui-cells__title">评论</view>-->
+        <view class="weui-cells weui-cells_after-title">
+            
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea textarea-height" maxlength="300" placeholder="请输入内容" style=""
+                              bindinput="bindContentInput"/>
+
+                </view>
+            </view>
+            <view class="bottom-btn">
+                <navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                <button class="comment-btn" type="primary">按钮</button>
+            </view>
+
+        </view>
+    </view>
+
+</view>
+
+
