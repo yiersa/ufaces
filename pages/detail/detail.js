@@ -23,6 +23,10 @@ Page({
         }
         let id = options.id;
         if (id) {
+            wx.showLoading({
+                title: '加载中',
+                mask: true
+            })
             this.queryDetail(id);
         }
 
@@ -83,6 +87,7 @@ Page({
         };
         AV.Cloud.run('getArticle', paramsJson).then(function (data) {
             // 调用成功，得到成功的应答 data
+            wx.hideLoading();
             if (data && data.errorCode == '0') {
                 let item = {
                     'title': data.data.title,
@@ -104,6 +109,7 @@ Page({
             }
         }, function (err) {
             // 处理调用失败
+            wx.hideLoading();
             that.setData({
                 itemData: {}
             });
@@ -133,7 +139,7 @@ Page({
             }
         })
     },
-    openComment:function () {
+    openComment: function () {
         let id = this.data.itemData.id;
         wx.navigateTo({
             url: '../comment/comment?id=' + id
