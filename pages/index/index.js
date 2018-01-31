@@ -11,12 +11,9 @@ Page({
   },
   //事件处理函数
   bindViewTap: function () {
-    // wx.reLaunch({
-    //   url: '../mainlist/mainlist',
-    // })
-      wx.reLaunch({
-          url: '../comment/comment',
-      })
+    wx.reLaunch({
+      url: '../mainlist/mainlist',
+    })
 
   },
   onLoad: function () {
