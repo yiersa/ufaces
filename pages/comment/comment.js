@@ -1,4 +1,7 @@
 // pages/comment/comment.js
+const AV = require('../../av-weapp-min.js');
+const util = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
