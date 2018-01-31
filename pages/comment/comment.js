@@ -6,6 +6,7 @@ Page({
    */
   data: {
       isAgree: false,
+      isShowTk:false
   },
 
   /**
