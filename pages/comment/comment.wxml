@@ -3,39 +3,53 @@
     <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{tips}}</view>
     <view class="page__bd comment-list">
 
-        <view >标签</view>
-        <view >标签</view>
-        <view >标签</view>
-        <view >标签</view>
-        <view >标签</view>
-        <view >标签</view>
+        <view>标签</view>
+        <view>标签</view>
+        <view>标签</view>
+        <view>标签</view>
+        <view>标签</view>
+        <view>标签</view>
 
         <view class="weui-footer weui-footer_fixed-bottom comment" bindtap="openComment">
             评论
         </view>
 
 
-
-
     </view>
     <view class="comment-parent">
+        <view class="comment-bg">
+            <view class="weui-cells weui-cells_after-title">
 
-        <!--<view class="weui-cells__title">评论</view>-->
-        <view class="weui-cells weui-cells_after-title">
-
-            <view class="weui-cell">
-                <view class="weui-cell__bd">
+                <view class="weui-cell">
+                    <view class="weui-cell__bd">
                     <textarea class="weui-textarea textarea-height" maxlength="300" placeholder="请输入内容" style=""
                               bindinput="bindContentInput"/>
 
+                    </view>
                 </view>
-            </view>
-            <view class="bottom-btn">
-                <navigator url="" class="weui-agree__link">《相关条款》</navigator>
-                <button class="comment-btn" type="primary">按钮</button>
+                <view class="bottom-btn">
+                    <button class="comment-btn" type="primary">按钮</button>
+                </view>
+
+
             </view>
 
+
+            <checkbox-group bindchange="bindAgreeChange">
+                <label class="weui-agree" for="weuiAgree">
+                    <view class="weui-agree__text">
+                        <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                        <view class="weui-agree__checkbox-icon">
+                            <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                        </view>
+                        阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                    </view>
+                </label>
+            </checkbox-group>
+
         </view>
+
+
     </view>
 
 </view>

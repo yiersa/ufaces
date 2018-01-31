@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      isAgree: false,
   },
 
   /**
@@ -65,5 +65,10 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+    bindAgreeChange: function (e) {
+        this.setData({
+            isAgree: !!e.detail.value.length
+        });
+    },
 })
