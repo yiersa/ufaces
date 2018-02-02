@@ -123,7 +123,7 @@ Page({
             data: that.data.itemData.origin,
             success: function (res) {
                 wx.showToast({
-                    title: '成功复制到剪贴板',
+                    title: '已复制',
                     icon: 'success',
                     duration: 2000,
                     mask: true
@@ -131,7 +131,7 @@ Page({
             },
             fail: function () {
                 wx.showToast({
-                    title: '复制到剪贴板失败',
+                    title: '复制失败',
                     icon: 'none',
                     duration: 2000,
                     mask: true
