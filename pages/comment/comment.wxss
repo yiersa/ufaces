@@ -29,3 +29,24 @@
     width: 100%;
     height: 100%;
 }
+.userinfo-avatar {
+    border-radius: 50%;
+    width:80rpx;
+    height:80rpx;
+}
+.comment-content{
+    color:#999;
+    font-size:13px;
+    line-height:1.2;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+}
+.comment_parent{
+    display:flex;
+    padding:15px;
+    position:relative;
+
+}
+.comment-content-parent{
+    flex-grow:1;
+}

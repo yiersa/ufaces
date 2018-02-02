@@ -10,7 +10,8 @@ Page({
   data: {
     id:"",
       isAgree: false,
-      isShowTk:false
+      isShowTk:false,
+      dataList:[]
   },
 
   /**
