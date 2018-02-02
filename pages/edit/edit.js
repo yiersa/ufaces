@@ -105,11 +105,11 @@ Page({
               })
 
             } else {
-                this.showTopTips('提交失败');
+                that.showTopTips('提交失败');
             }
         }, function (err) {
             // 处理调用失败
-            this.showTopTips('提交失败');
+            that.showTopTips('提交失败');
         });
     },
     showTopTips: function (tips) {
@@ -135,6 +135,10 @@ Page({
         }
     },
     checkInputValue: function () {
+        if (!this.data.userInfo.id) {
+            this.showTopTips('未登录');
+            return false;
+        }
         if (!this.data.label) {
             this.showTopTips('请输入标签');
             return false;

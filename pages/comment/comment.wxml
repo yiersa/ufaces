@@ -4,9 +4,9 @@
     <view class="page__bd comment-list">
 
         <view class="weui-panel__bd">
-            <view url="" class="comment_parent" hover-class="weui-cell_active"
+            <view url="" class="weui-media-box comment_parent" hover-class="weui-cell_active"
                   wx:for="{{dataList}}" wx:key="{{id}}">
-                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <view class="comtent-avatar">
                     <image class="userinfo-avatar" src="{{item.avatarUrl}}"/>
                 </view>
 
@@ -25,7 +25,10 @@
 
     </view>
     <view class="comment-parent" wx:if="{{isShowTk}}">
-        <view class="comment-bg">
+        <view id="close-comment" bindtap="closeComment">
+
+        </view>
+        <view class="comment-bg" >
             <view class="weui-cells weui-cells_after-title">
 
                 <view class="weui-cell">
@@ -36,7 +39,7 @@
                     </view>
                 </view>
                 <view class="bottom-btn">
-                    <button class="comment-btn" type="primary">按钮</button>
+                    <button class="comment-btn" type="primary" bindtap="confirm">按钮</button>
                 </view>
 
 
