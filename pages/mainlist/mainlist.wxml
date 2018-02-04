@@ -5,7 +5,7 @@
         <view>
             <image bindtap="openMinePage" class="head-avatar"
                    src="{{userInfo.avatarUrl}}" mode='aspectFill'></image>
-            <view id='head-dot'></view>
+            <!--<view id='head-dot'></view>-->
         </view>
 
         <text class="head-text" bindtap="openAddPage">添加</text>

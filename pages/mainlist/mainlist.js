@@ -63,7 +63,15 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-      
+        wx.stopPullDownRefresh();
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
+        this.setData({
+            page: 0
+        })
+        this.queryArr(this.data.page);
     },
 
     /**

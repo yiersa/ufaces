@@ -9,7 +9,7 @@ Page({
    */
   data: {
       userInfo:{},
-      showMineTips:true,
+      showMineTips:false,
       showCommentTips:false,
       createdTime:''
   },
