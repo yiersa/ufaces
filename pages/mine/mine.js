@@ -1,18 +1,30 @@
 // pages/mine/mine.js
+const AV = require('../../av-weapp-min.js');
+const util = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      userInfo:{},
+      showMineTips:true,
+      showCommentTips:false,
+      createdTime:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      if (app.globalData.userInfo) {
+        let time = util.formatTime(app.globalData.userInfo.createdAt);
+          this.setData({
+              userInfo: app.globalData.userInfo,
+              createdTime:time
+          })
+      }
   },
 
   /**

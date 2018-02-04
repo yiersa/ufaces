@@ -5,28 +5,28 @@
     <view class="page__bd">
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="../images/pic_160.png" style="width: 50px; height: 50px; display: block"/>
-                    <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
+                <view class="weui-cell__hd weui-cell__hd-1">
+                    <image src="{{userInfo.avatarUrl}}" class="head-photo"/>
+                    <!--<view class="weui-badge weui-badge-1" wx:if="{{showHeadTips}}">8</view>-->
                 </view>
                 <view class="weui-cell__bd">
-                    <view>联系人名称</view>
-                    <view style="font-size: 13px;color: #888888;">摘要信息</view>
+                    <view>{{userInfo.nickName}}</view>
+                    <view class="name">注册日期:{{createdTime}}</view>
                 </view>
             </view>
 
-            <view class="weui-cell weui-cell_access">
+            <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
-                    <view style="display: inline-block; vertical-align: middle">我发布的</view>
-                    <view class="weui-badge" style="margin-left: 5px;">8</view>
+                    <view class="weui-cell__bd-content">我发布的</view>
+                    <view class="weui-badge weui-badge-2" wx:if="{{showMineTips}}">8</view>
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </view>
 
-            <view class="weui-cell weui-cell_access">
+            <view class="weui-cell weui-cell_access"  hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
-                    <view style="display: inline-block; vertical-align: middle">我评论的</view>
-                    <view class="weui-badge" style="margin-left: 5px;">8</view>
+                    <view class="weui-cell__bd-content">我评论的</view>
+                    <view class="weui-badge weui-badge-2" wx:if="{{showCommentTips}}">8</view>
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </view>

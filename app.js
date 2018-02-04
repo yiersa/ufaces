@@ -18,6 +18,7 @@ App({
     AV.User.loginWithWeapp().then(user => {
       that.globalData.userInfo = user.attributes;
       that.globalData.userInfo.id = user.id;
+      that.globalData.userInfo.createdAt = user.createdAt;
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       if (that.userInfoReadyCallback) {

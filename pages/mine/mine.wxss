@@ -4,3 +4,21 @@ page{
     font-size: 16px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
+.weui-cell__hd-1{
+    position: relative;margin-right: 10px;
+}
+.head-photo{
+    width: 50px; height: 50px; display: block
+}
+.weui-badge-1{
+    position: absolute;top: -.4em;right: -.4em;
+}
+.name{
+    font-size: 13px;color: #888888;
+}
+.weui-cell__bd-content{
+    display: inline-block; vertical-align: middle
+}
+.weui-badge-2{
+    margin-left: 5px;
+}
