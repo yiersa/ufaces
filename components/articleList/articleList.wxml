@@ -1,24 +1,11 @@
-<!--pages/mainlist/mainlist.wxml-->
-<view class="page">
-    <!--顶部头像 添加按钮  -->
-    <view class="head-container">
-        <view>
-            <image bindtap="openMinePage" class="head-avatar"
-                   src="{{userInfo.avatarUrl}}" mode='aspectFill'></image>
-            <!--<view id='head-dot'></view>-->
-        </view>
-
-        <text class="head-text" bindtap="openAddPage">添加</text>
-    </view>
-
-
-     <!-- 列表    -->
-     <!-- <view class="page__bd">
+<!--components/articleList/articleList.wxml-->
+<!-- 列表   -->
+     <view class="page__bd">
         <view class="weui-panel">
 
             <view class="weui-panel__bd">
-                <view class='bottom_border' wx:for="{{dataList}}" wx:key="{{id}}">
-                    <view class="weui-media-box weui-media-box_text" data-item-id="{{item.id}}"  hover-class="weui-cell_active" bindtap="openDetail">
+                <view class='bottom_border' wx:for="{{articleDataList}}" wx:key="{{id}}">
+                    <view class="weui-media-box weui-media-box_text" data-item-id="{{item.id}}"  hover-class="weui-cell_active" bindtap="onTap">
                         <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
                         <view class="weui-media-box__desc">{{item.content}}</view>
                         <view class="weui-media-box__info">
@@ -34,7 +21,4 @@
             </view>
         </view>
 
-    </view>  -->
-   <article-list article-data-list="{{dataList}}" bindmyOnTap="openDetail"></article-list> 
-
-</view>
+    </view> 
