@@ -74,5 +74,15 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+    openMineListPage:function () {
+        wx.navigateTo({
+            url: '../minelist/mineList',
+        })
+    },
+    openCommentedListPage:function () {
+        wx.navigateTo({
+            url: '../commentedlist/commentedList',
+        })
+    }
 })

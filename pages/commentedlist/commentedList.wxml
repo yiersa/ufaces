@@ -1,0 +1,2 @@
+<!--pages/commentedlist/commentedList.wxml-->
+<article-list article-data-list="{{dataList}}" bindmyOnTap="openDetail"></article-list>
