@@ -118,7 +118,7 @@ Page({
     },
     openDetail: function (event) {
         if (event) {
-            let id = event.currentTarget.dataset.itemId;
+            let id = event.detail;
             wx.navigateTo({
                 url: '../detail/detail?id=' + id
             })
