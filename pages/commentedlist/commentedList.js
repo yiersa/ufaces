@@ -93,7 +93,7 @@ Page({
                         'label': data.data[i].label,
                         'time': util.formatTimeNoHour(data.data[i].createdAt),
                         'id': data.data[i].objectId,
-                        'commentCount': data.data[i].commentCount < 99 ? data.data[i].commentCount : 99
+                        'commentCount': data.data[i].commentCount < 99 ? data.data[i].commentCount+'' : '99+'
                     }
                     //
                     datas.push(item);

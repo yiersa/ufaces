@@ -97,7 +97,7 @@ Page({
                     'time': util.formatTime(data.data.createdAt),
                     'id': data.data.objectId,
                     'origin': data.data.origin,
-                    'commentCount': data.data.commentCount < 99 ? data.data.commentCount : 99
+                    'commentCount': data.data.commentCount < 99 ? data.data.commentCount+'' : '99+'
                 }
                 that.setData({
                     itemData: item
