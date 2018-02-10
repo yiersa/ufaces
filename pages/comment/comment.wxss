@@ -22,6 +22,7 @@
 }
 .comment-list{
     position: absolute;
+    width: 100%;
 }
 .comment-bg{
     background-color: #F8F8F8;
