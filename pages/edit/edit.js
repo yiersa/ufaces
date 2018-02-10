@@ -143,7 +143,7 @@ Page({
             this.showTopTips('请输入标签');
             return false;
         }
-        if (this.data.label.length > 20) {
+        if (this.data.label.length > 10) {
             this.showTopTips('标签过长');
             return false;
         }
