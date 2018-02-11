@@ -39,7 +39,7 @@
                     </view>
                 </view>
                 <view class="bottom-btn">
-                    <button class="comment-btn" type="primary" bindtap="confirm">按钮</button>
+                    <button class="comment-btn" type="primary" bindtap="confirm">发送</button>
                 </view>
 
 
