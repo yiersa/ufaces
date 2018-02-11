@@ -4,7 +4,7 @@ const app = getApp()
 const AV = require('../../av-weapp-min.js');
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '专注打脸20年',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')

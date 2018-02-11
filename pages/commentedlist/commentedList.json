@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "我评论的",
   "usingComponents": {
     "article-list": "../../components/articleList/articleList"
   }

@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "我发布的",
   "usingComponents": {
     "article-list": "../../components/articleList/articleList"
   }
