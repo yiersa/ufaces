@@ -58,7 +58,7 @@ Page({
       that.setData({
         motto: '正在跳转……'
       })
-    }, 1000);
+    }, 1200);
     
     setTimeout(function () {
       wx.reLaunch({
