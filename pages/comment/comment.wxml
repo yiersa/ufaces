@@ -55,7 +55,7 @@
                                   wx:if="{{isAgree}}"></icon>
                         </view>
                         阅读并同意
-                        <navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                        <navigator url="../agreement/agreement" class="weui-agree__link">《相关条款》</navigator>
                     </view>
                 </label>
             </checkbox-group>
