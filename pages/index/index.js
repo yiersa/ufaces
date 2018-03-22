@@ -39,7 +39,10 @@ Page({
                 userInfo: res,
                 hasUserInfo: true
             })
-            that.openNextPageDelay();
+            setTimeout(function () {
+                that.openNextPageDelay();
+            }, 2000);
+
         }
     },
     getUserInfo: function (e) {
@@ -70,10 +73,6 @@ Page({
             index++;
         }, 300);
 
-        setTimeout(function () {
-            wx.reLaunch({
-                url: '../mainlist/mainlist',
-            })
-        }, 2000);
+
     }
 })
