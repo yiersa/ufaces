@@ -100,7 +100,7 @@ Page({
             if (data && data.errorCode == '0') {
                 //跳转详情页面
               let id = data.data.objectId;
-              wx.navigateTo({
+              wx.reLaunch({
                 url: '../detail/detail?id=' + id
               })
 
